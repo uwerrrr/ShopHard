@@ -6,9 +6,14 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <!--  instruct the compiler to execute the command npm run css:build (the script we previously added) before proceeding to build the project itself  -->
     <ItemGroup>
-      <Folder Include="Models\" />
-      <Folder Include="Serivce\" />
+        <UpToDateCheckBuilt Include="wwwroot/css/site.css" Set="Css" />
+        <UpToDateCheckBuilt Include="tailwind.config.js" Set="Css" />
     </ItemGroup>
+
+    <Target Name="Tailwind" BeforeTargets="Build">
+        <Exec Command="npm run css:build" />
+    </Target>
 
 </Project>
