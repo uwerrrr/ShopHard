@@ -1,3 +1,6 @@
+
+using ShopHardRazorPages.Serivces;
+
 namespace ShopHardRazorPages;
 
 public class Program
@@ -8,6 +11,7 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddRazorPages();
+        builder.Services.AddSingleton<ProductService>();
 
         var app = builder.Build();
 
